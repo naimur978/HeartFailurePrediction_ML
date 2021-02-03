@@ -24,18 +24,18 @@ class MainActivity : AppCompatActivity() {
             var ed3 : EditText = findViewById(R.id.editTextNumberDecimal3)
             var ed4 : EditText = findViewById(R.id.editTextNumberDecimal4)
 
-            var v1: Float = ed1.text.toString().toFloat()
+            var v1: Int = ed1.text.toString().toInt()
             var v2: Float = ed2.text.toString().toFloat()
             var v3: Float = ed3.text.toString().toFloat()
-            var v4: Float = ed4.text.toString().toFloat()
+            var v4: Int = ed4.text.toString().toInt()
 
 
 
             var byteBuffer : ByteBuffer = ByteBuffer.allocateDirect(4*4)
-            byteBuffer.putFloat(v1)
+            byteBuffer.putInt(v1)
             byteBuffer.putFloat(v2)
             byteBuffer.putFloat(v3)
-            byteBuffer.putFloat(v4)
+            byteBuffer.putInt(v4)
 
 
 
@@ -50,8 +50,8 @@ class MainActivity : AppCompatActivity() {
 
             var tv : TextView = findViewById(R.id.textView)
 
-            tv.setText("No : " + outputFeature0[0].toString() + "\n" +
-                    "Yes : " + outputFeature0[1].toString() + "\n"
+            tv.setText("No : " + (outputFeature0[0]* 100).toString()  + " %" + "\n" +
+                    "Yes : " + (outputFeature0[1]* 100).toString()  + " %" + "\n"
             )
 
             model.close()
